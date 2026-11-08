@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="OyisaTech Knowledge Hub: practical technology, business, career and education guides for South Africans.">
+<title>Knowledge Hub | OyisaTech</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f4f7fb;color:#17243a;line-height:1.7}
+header{background:#071a35;color:white;padding:18px 7%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.logo{font-size:23px;font-weight:bold}
+.logo span{color:#35a7ff}
+nav a{color:white;text-decoration:none;margin-left:15px;font-size:14px}
+.hero{background:linear-gradient(120deg,#071a35,#12538c);color:white;text-align:center;padding:65px 20px}
+.hero h1{font-size:36px;margin-bottom:12px}
+.hero p{max-width:650px;margin:auto;color:#dceaff}
+.search{max-width:500px;margin:25px auto 0}
+.search input{width:100%;padding:14px;border:0;border-radius:8px;font-size:15px}
+.container{max-width:1100px;margin:auto;padding:40px 20px}
+h2{color:#102c4d;margin-bottom:10px}
+.categories{display:flex;flex-wrap:wrap;gap:9px;margin:25px 0}
+.categories button{padding:9px 16px;border:1px solid #d5deeb;background:white;border-radius:25px;cursor:pointer}
+.categories button.active,.categories button:hover{background:#0879ce;color:white}
+.articles{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:22px}
+.article{background:white;border-radius:12px;overflow:hidden;box-shadow:0 3px 14px #0000000d;display:flex;flex-direction:column}
+.article-image{height:130px;background:#dceeff;display:grid;place-items:center;font-size:45px}
+.article-content{padding:20px;display:flex;flex-direction:column;flex:1}
+.tag{color:#0879ce;font-size:12px;font-weight:bold;text-transform:uppercase}
+.article h3{margin:8px 0;color:#102c4d}
+.article p{font-size:14px;color:#657286;margin-bottom:15px}
+.read{margin-top:auto;background:#0879ce;color:white;border:0;padding:11px;border-radius:6px;cursor:pointer}
+#reader{display:none;background:white;padding:28px;border-radius:12px;margin-top:25px}
+#reader h2{margin:18px 0}
+#reader p{margin-bottom:15px}
+#reader h3{margin:18px 0 5px;color:#12538c}
+.back{background:#071a35;color:white;padding:10px 16px;border:0;border-radius:6px;cursor:pointer}
+.empty{display:none;text-align:center;padding:25px}
+footer{background:#071a35;color:#dceaff;text-align:center;padding:30px 15px;margin-top:35px}
+footer a{color:#35a7ff;text-decoration:none}
+@media(max-width:600px){.hero h1{font-size:29px}header{justify-content:center}nav a{margin:0 6px}}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">OYISA<span>TECH</span></div>
+<nav>
+<a href="index.html">Home</a>
+<a href="index.html">Services</a>
+<a href="knowledge-hub.html">Knowledge Hub</a>
+</nav>
+</header>
+
+<section class="hero">
+<h1>OyisaTech Knowledge Hub</h1>
+<p>Learn, discover and grow. Practical guides about technology, business, careers and education for South Africans.</p>
+<div class="search">
+<input id="search" type="search" placeholder="Search articles..." oninput="filterArticles()">
+</div>
+</section>
+
+<main class="container">
+<h2>Explore Knowledge</h2>
+<p>Useful information to help you move forward.</p>
+
+<div class="categories">
+<button class="active" onclick="setCategory('All',this)">All</button>
+<button onclick="setCategory('Technology',this)">Technology</button>
+<button onclick="setCategory('Business',this)">Business</button>
+<button onclick="setCategory('Careers',this)">Careers</button>
+<button onclick="setCategory('Education',this)">Education</button>
+</div>
+
+<div class="articles" id="articles">
+
+<div class="article" data-category="Technology">
+<div class="article-image">💻</div>
+<div class="article-content">
+<span class="tag">Technology</span>
+<h3>10 Ways Young South Africans Can Make Money Using Technology</h3>
+<p>Discover digital skills and business ideas you can explore.</p>
+<button class="read" onclick="readArticle(0)">Read Article</button>
+</div></div>
+
+<div class="article" data-category="Business">
+<div class="article-image">🚀</div>
+<div class="article-content">
+<span class="tag">Business</span>
+<h3>How to Start a Small Business with Little Money</h3>
+<p>Learn how to start small and find your first customers.</p>
+<button class="read" onclick="readArticle(1)">Read Article</button>
+</div></div>
+
+<div class="article" data-category="Technology">
+<div class="article-image">📱</div>
+<div class="article-content">
+<span class="tag">Technology</span>
+<h3>How to Build Your First Website Using a Phone</h3>
+<p>Explore beginner-friendly tools for creating websites.</p>
+<button class="read" onclick="readArticle(2)">Read Article</button>
+</div></div>
+
+<div class="article" data-category="Education">
+<div class="article-image">🎓</div>
+<div class="article-content">
+<span class="tag">Education</span>
+<h3>How to Find Bursaries in South Africa</h3>
+<p>Learn where to search and how to prepare applications.</p>
+<button class="read" onclick="readArticle(3)">Read Article</button>
+</div></div>
+
+<div class="article" data-category="Careers">
+<div class="article-image">💼</div>
+<div class="article-content">
+<span class="tag">Careers</span>
+<h3>How to Prepare for Your First Job Interview</h3>
+<p>Practical tips to help you prepare for an interview.</p>
+<button class="read" onclick="readArticle(4)">Read Article</button>
+</div></div>
+
+</div>
+
+<div class="empty" id="empty">No articles found. Try another search.</div>
+
+<section id="reader">
+<button class="back" onclick="closeArticle()">← Back to Articles</button>
+<div id="articleText"></div>
+</section>
+</main>
+
+<footer>
+<h3>OYISATECH</h3>
+<p>Dream. Build. Grow.</p>
+<p>Technology and knowledge for a better future.</p>
+<p><a href="index.html">Visit OyisaTech Homepage</a></p>
+<p>© 2026 OyisaTech. All rights reserved.</p>
+</footer>
+
+<script>
+const articles=[
+{
+title:"10 Ways Young South Africans Can Make Money Using Technology",
+content:`
+<p>Technology creates opportunities to develop skills, solve problems and build businesses. Here are ten areas to explore.</p>
+<h3>1. Website development</h3><p>Learn to build websites for shops, salons and small businesses. Create sample projects to demonstrate your skills.</p>
+<h3>2. Mobile app development</h3><p>Learn how to create Android applications that solve everyday problems.</p>
+<h3>3. Graphic design</h3><p>Design posters, business cards and social media graphics.</p>
+<h3>4. Video editing</h3><p>Help creators and businesses edit videos for their audiences.</p>
+<h3>5. Digital marketing</h3><p>Help businesses improve their online presence.</p>
+<h3>6. CV design</h3><p>Offer CV formatting and document design services.</p>
+<h3>7. Online tutoring</h3><p>Teach subjects or skills you understand well.</p>
+<h3>8. Content creation</h3><p>Create useful educational or entertainment content.</p>
+<h3>9. Website maintenance</h3><p>Help businesses update and maintain their websites.</p>
+<h3>10. Digital products</h3><p>Create templates and resources that customers can purchase.</p>
+<p>Choose one skill, practise it and build a portfolio. Income is not guaranteed, but useful skills can create opportunities.</p>`
+},
+{
+title:"How to Start a Small Business with Little Money",
+content:`
+<p>Starting a business does not always require a large amount of money. Begin by identifying a problem people need solved.</p>
+<h3>1. Identify a problem</h3><p>Look at services missing in your community.</p>
+<h3>2. Start with your skills</h3><p>Consider what you can offer using resources you already have.</p>
+<h3>3. Understand customers</h3><p>Speak to potential customers and find out what they need.</p>
+<h3>4. Promote your business</h3><p>Use WhatsApp and social media to showcase your work.</p>
+<h3>5. Track your money</h3><p>Record income, expenses and profit.</p>
+<p>Start small, learn from customers and grow as demand increases.</p>`
+},
+{
+title:"How to Build Your First Website Using a Phone",
+content:`
+<p>You do not necessarily need an expensive computer to begin learning website development. A smartphone can help you start.</p>
+<h3>1. Learn HTML</h3><p>HTML provides the structure of a webpage.</p>
+<h3>2. Learn CSS</h3><p>CSS controls colours, layouts and appearance.</p>
+<h3>3. Use GitHub</h3><p>GitHub lets you store code and publish websites using GitHub Pages.</p>
+<h3>4. Practise</h3><p>Create a portfolio, business website or information page.</p>
+<h3>5. Test your website</h3><p>Check links, mobile layouts and loading speed.</p>
+<p>Keep practising. Your first website does not need to be perfect.</p>`
+},
+{
+title:"How to Find Bursaries in South Africa",
+content:`
+<p>Bursaries can help students pay for education, depending on each sponsor's requirements and funding conditions.</p>
+<h3>1. Research official sources</h3><p>Check government departments, universities, colleges and company bursary programmes.</p>
+<h3>2. Check eligibility</h3><p>Read academic, subject, citizenship and financial requirements.</p>
+<h3>3. Prepare documents</h3><p>Common documents include identification, academic results and proof of household income. Requirements differ.</p>
+<h3>4. Apply before deadlines</h3><p>Submit complete applications through official channels.</p>
+<h3>5. Avoid scams</h3><p>Never pay someone who promises to guarantee a bursary. Verify opportunities with the sponsor.</p>`
+},
+{
+title:"How to Prepare for Your First Job Interview",
+content:`
+<p>A job interview allows an employer to learn about your skills, attitude and suitability for a position.</p>
+<h3>1. Research the employer</h3><p>Understand what the organisation does.</p>
+<h3>2. Practise questions</h3><p>Prepare answers about your strengths, skills and experience.</p>
+<h3>3. Dress appropriately</h3><p>Choose clean, professional clothing suitable for the workplace.</p>
+<h3>4. Arrive on time</h3><p>Plan your transport and aim to arrive early.</p>
+<h3>5. Be honest</h3><p>Do not invent qualifications or experience. Explain what you know and what you are willing to learn.</p>`
+}
+];
+
+let selectedCategory="All";
+
+function readArticle(index){
+const article=articles[index];
+document.getElementById("articleText").innerHTML=
+"<h2>"+article.title+"</h2>"+article.content;
+document.getElementById("reader").style.display="block";
+document.getElementById("articles").style.display="none";
+document.querySelector(".categories").style.display="none";
+document.querySelector(".section-title")?.style.display="none";
+document.getElementById("reader").scrollIntoView({behavior:"smooth"});
+}
+
+function closeArticle(){
+document.getElementById("reader").style.display="none";
+document.getElementById("articles").style.display="grid";
+document.querySelector(".categories").style.display="flex";
+document.querySelector(".section-title")?.style.display="block";
+window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function setCategory(category,button){
+selectedCategory=category;
+document.querySelectorAll(".categories button").forEach(b=>b.classList.remove("active"));
+button.classList.add("active");
+filterArticles();
+}
+
+function filterArticles(){
+const search=document.getElementById("search").value.toLowerCase();
+let count=0;
+document.querySelectorAll(".article").forEach(card=>{
+const matchesCategory=selectedCategory==="All"||card.dataset.category===selectedCategory;
+const matchesSearch=card.innerText.toLowerCase().includes(search);
+const show=matchesCategory&&matchesSearch;
+card.style.display=show?"flex":"none";
+if(show) count++;
+});
+document.getElementById("empty").style.display=count===0?"block":"none";
+}
+</script>
+
+</body>
+  </html>
+  
